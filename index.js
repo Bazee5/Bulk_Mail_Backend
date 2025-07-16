@@ -11,11 +11,16 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://bulk-mail-frontend-three.vercel.app/", // ✅ Replace with your actual frontend Vercel URL
-    methods: ["POST"],
+    origin: [
+      "https://bulk-mail-frontend-three.vercel.app",
+      "https://bulk-mail-frontend-git-main-bazees-projects.vercel.app",
+      "https://bulk-mail-frontend-b7qcle8pd-bazees-projects.vercel.app"
+    ],
+    methods: ["POST", "GET"],
     credentials: true,
   })
 );
+
 
 mongoose
   .connect(process.env.MONGO_URL)
