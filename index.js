@@ -9,10 +9,16 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: "https://bulkmail-frontend-chi.vercel.app" }));
+app.use(
+  cors({
+    origin: "https://bulk-mail-frontend-three.vercel.app/", // ✅ Replace with your actual frontend Vercel URL
+    methods: ["POST"],
+    credentials: true,
+  })
+);
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("Connected To Database"))
   .catch((err) => console.error("Database Connection Failed:", err.message));
 
