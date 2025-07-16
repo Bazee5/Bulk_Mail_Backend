@@ -66,6 +66,11 @@ app.post("/sendemail", function (req, res) {
     .catch((err) => console.log("Credential fetch failed:", err));
 });
 
+app.get("/", (req, res) => {
+  res.send("Bulk Mail Backend is running.");
+});
+
+
 app.listen(PORT, () => {
   console.log("Server Started on port", PORT);
 });
